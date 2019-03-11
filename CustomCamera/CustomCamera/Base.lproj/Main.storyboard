@@ -32,7 +32,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAu-wb-wJg" userLabel="Open">
                                 <rect key="frame" x="218" y="409" width="102" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="ImgCameraCaptureBtn"/>
+                                <state key="normal" title="Button" image="OpenBtn"/>
                                 <connections>
                                     <action selector="loadOverlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w1S-dt-I9R"/>
                                 </connections>
@@ -82,5 +82,6 @@
     </scenes>
     <resources>
         <image name="ImgCameraCaptureBtn" width="102" height="102"/>
+        <image name="OpenBtn" width="256" height="256"/>
     </resources>
 </document>

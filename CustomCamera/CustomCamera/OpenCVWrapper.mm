@@ -93,25 +93,10 @@ using namespace cv;
     
     if (thickness > 0) {
         Mat dst2(src.rows, src.cols, CV_8UC4, cv::Scalar(0, 0, 0, 0));
-        unsigned char *input = (unsigned char*)(dst.data);
-        unsigned char *output = (unsigned char*)(dst2.data);
-        for (int j = 0; j < dst.rows; j++){
-            for (int i = 0; i < dst.cols; i++) {
-                if (input[dst.step * j + i * 4 + 3] != 0)
-                {
-                    for (int jj = max(j - thickness, 0); jj < min(j + thickness + 1, dst.rows); jj++)
-                    {
-                        for (int ii = max(i - thickness, 0); ii < min(i + thickness + 1, dst.cols); ii++)
-                        {
-                            for (int p = 0; p < 4; p++)
-                            {
-                                output[dst.step * jj + ii * 4 + p] = input[dst.step * j + i * 4 + p];
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        
+        Mat element = getStructuringElement(MORPH_ELLIPSE, cv::Size(2 * thickness + 1, 2 * thickness + 1));
+        dilate(dst, dst2, element);
+        
         dst = dst2;
     }
     
